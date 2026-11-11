@@ -14,6 +14,4 @@ class HFDatasetLoader:
             name=self.config,
             split=self.split
         )
-
-        dataframe = dataset.to_pandas()
-        return dataframe
+        return dataset.to_pandas()

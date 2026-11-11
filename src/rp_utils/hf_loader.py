@@ -1,18 +1,4 @@
-
-loader = HFDatasetLoader("scikit-learn/iris", split="train")
-df = loader.load()
-
-print("Dimensiones originales:", df.shape)
-display(df.head())
-
-df_transformado = df.rename(
-    columns={"SepalLengthCm": "longitud_sepalo"}
-)
-
-print("Transformación: renombré SepalLengthCm a longitud_sepalo.")
-display(df_transformado.head())
-
-
+from datasets import load_dataset
 
 
 class HFDatasetLoader:
@@ -27,6 +13,4 @@ class HFDatasetLoader:
             name=self.config,
             split=self.split
         )
-
-        dataframe = dataset.to_pandas()
-        return dataframe
+        return dataset.to_pandas()
